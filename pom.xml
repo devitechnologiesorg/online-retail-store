@@ -52,6 +52,13 @@
       <version>${assertj.version}</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>6.2.0</version>
+    </dependency>
+
   </dependencies>
   
   <distributionManagement>
@@ -69,6 +76,13 @@
       </snapshotRepository>
   
   </distributionManagement>
+
+  <repositories>
+      <repository>
+          <id>maven-public</id>
+          <url>http://20.244.10.240:8081/repository/maven-public/</url>
+      </repository>
+  </repositories>
            
   <build>
     <finalName>online-retail-store</finalName>
