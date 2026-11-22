@@ -62,14 +62,14 @@
   </dependencies>
 
   <!-- Download dependencies from Nexus -->
-  <repositories>
+  <!-- <repositories>
       <repository>
           <id>maven-public</id>
           <url>
               http://20.244.10.240:8081/repository/maven-public/
           </url>
       </repository>
-  </repositories>
+  </repositories> -->
   
   <distributionManagement>
   
