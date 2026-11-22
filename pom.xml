@@ -61,6 +61,16 @@
 
   </dependencies>
   
+  <!-- Download dependencies from Nexus -->
+  <repositories>
+      <repository>
+          <id>maven-public</id>
+          <url>
+              http://20.244.10.240:8081/repository/maven-public/
+          </url>
+      </repository>
+  </repositories>
+  
   <distributionManagement>
   
       <repository>
@@ -76,13 +86,6 @@
       </snapshotRepository>
   
   </distributionManagement>
-
-  <repositories>
-      <repository>
-          <id>maven-public</id>
-          <url>http://20.244.10.240:8081/repository/maven-public/</url>
-      </repository>
-  </repositories>
            
   <build>
     <finalName>online-retail-store</finalName>
