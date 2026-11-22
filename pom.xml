@@ -53,7 +53,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  
+  <distributionManagement>
+    <repository>
+      <id>nexus</id>
+      <name>Devi Technologies Releases Nexus Repository</name>
+      <url>http://20.244.10.240:8081/repository/onlineretailstore-release</url>
+    </repository>
+    
+    <snapshotRepository>
+      <id>nexus</id>
+      <name>Devi Technologies Snapshot Nexus Repository </name>
+      <url>http://20.244.10.240:8081/repository/onlineretailstore-snapshot</url>
+    </snapshotRepository>
+  </distributionManagement>
+         
   <build>
     <finalName>online-retail-store</finalName>
     <plugins>
