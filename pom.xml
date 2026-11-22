@@ -1,127 +1,171 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.devitechnoglogies.online-retail-store</groupId>
-  <artifactId>online-retail-store</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+    <modelVersion>4.0.0</modelVersion>
 
-  <name>Organic Online Retail Store</name>
-  <description>Grocery storefront packaged as a Java web application (WAR).</description>
+    <!-- Project Information -->
+    <groupId>com.devitechnoglogies.online-retail-store</groupId>
+    <artifactId>online-retail-store</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <maven.compiler.release>17</maven.compiler.release>
-    <junit.version>5.11.4</junit.version>
-    <assertj.version>3.26.3</assertj.version>
-    <log4j.version>2.24.3</log4j.version>
-  </properties>
+    <name>Organic Online Retail Store</name>
+    <description>
+        Grocery storefront packaged as a Java web application (WAR).
+    </description>
 
-  <dependencies>
-    <!-- Provided by Tomcat 9. Not packaged inside the WAR. -->
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>4.0.1</version>
-      <scope>provided</scope>
-    </dependency>
+    <!-- Project Properties -->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
+        <maven.compiler.release>17</maven.compiler.release>
 
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter</artifactId>
-      <version>${junit.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.assertj</groupId>
-      <artifactId>assertj-core</artifactId>
-      <version>${assertj.version}</version>
-      <scope>test</scope>
-    </dependency>
+        <junit.version>5.11.4</junit.version>
+        <assertj.version>3.26.3</assertj.version>
+        <log4j.version>2.24.3</log4j.version>
+        <spring.version>6.2.0</spring.version>
+    </properties>
 
-    <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>6.2.0</version>
-    </dependency>
+    <!-- Project Dependencies -->
+    <dependencies>
 
-  </dependencies>
-  
-  <distributionManagement>
-  
-      <repository>
-          <id>nexus</id>
-          <name>Devi Technologies Releases Nexus Repository</name>
-          <url>http://20.244.10.240:8081/repository/onlineretailstore-release/</url>
-      </repository>
-  
-      <snapshotRepository>
-          <id>nexus</id>
-          <name>Devi Technologies Snapshot Nexus Repository</name>
-          <url>http://20.244.10.240:8081/repository/onlineretailstore-snapshot/</url>
-      </snapshotRepository>
-  
-  </distributionManagement>
-           
-  <build>
-    <finalName>online-retail-store</finalName>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.2</version>
-      </plugin>
-      <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>4.0.0.4121</version>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.10</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>report</id>
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.4.0</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+        <!-- Servlet API provided by Tomcat 9 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Log4j Logging -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- Spring Framework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- JUnit Testing -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- AssertJ Testing -->
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <!-- Nexus Repository Configuration -->
+    <distributionManagement>
+
+        <!-- Release Repository -->
+        <repository>
+            <id>nexus-releases</id>
+            <name>Devi Technologies Releases Nexus Repository</name>
+            <url>http://20.244.10.240:8081/repository/onlineretailstore-release/</url>
+        </repository>
+
+        <!-- Snapshot Repository -->
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <name>Devi Technologies Snapshot Nexus Repository</name>
+            <url>http://20.244.10.240:8081/repository/onlineretailstore-snapshot/</url>
+        </snapshotRepository>
+
+    </distributionManagement>
+
+    <!-- Build Configuration -->
+    <build>
+
+        <finalName>online-retail-store</finalName>
+
+        <plugins>
+
+            <!-- Java Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
+            </plugin>
+
+            <!-- Unit Testing -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.2</version>
+            </plugin>
+
+            <!-- SonarQube Scanner -->
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>4.0.0.4121</version>
+            </plugin>
+
+            <!-- Code Coverage -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.10</version>
+
+                <executions>
+
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+
+                    <execution>
+                        <id>report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+
+                </executions>
+            </plugin>
+
+            <!-- WAR Packaging -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.4.0</version>
+
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
 </project>
+```
